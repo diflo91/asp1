@@ -1,0 +1,33 @@
+﻿@model projet_ASPNET.Models.Article
+
+@{
+    ViewData["Title"] = "Suppression";
+}
+
+<h1>Suppression</h1>
+
+<h3>Voulez vous supprimez ?</h3>
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Titre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Titre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Contenu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Contenu)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <div class="btn btn-primary"><a style="color: #ffffff; text-decoration: none;" asp-action="Index">Retour </a></div>
+    </form>
+</div>

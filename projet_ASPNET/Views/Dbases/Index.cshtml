@@ -1,0 +1,43 @@
+﻿@model IEnumerable<projet_ASPNET.Models.Article>
+
+@{
+    ViewData["Title"] = "Menu principal";
+}
+
+<h1>Menu principal</h1>
+
+<p>
+    <form action="/Dbases/Create/">
+        <button class="btn btn-primary" type="submit">Créer</button>
+    </form>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contenu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contenu)
+            </td>
+            <td>
+                    <div style="background-color: green;" class="btn btn-primary"><a style="color: #ffffff; text-decoration: none; background-color: green;" asp-action="Edit" asp-route-id="@item.ID">Edit</a> </div>
+                    <div class="btn btn-primary"><a style="color: #ffffff; text-decoration: none;" asp-action="Details" asp-route-id="@item.ID">Details</a> </div>
+                    <div style="background-color: red;" class="btn btn-primary"><a style="color: #ffffff; text-decoration: none; " asp-action="Delete" asp-route-id="@item.ID">Delete</a></div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
